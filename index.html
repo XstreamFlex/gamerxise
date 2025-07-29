@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamerXise - Game Your Way to Fitness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ps-blue: #006FCD;
+            --xbox-green: #107C10;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--ps-blue), var(--xbox-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0, 111, 205, 0.1) 0%, rgba(16, 124, 16, 0.1) 100%);
+        }
+        
+        .controller-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 20px rgba(0, 111, 205, 0.5); }
+            to { box-shadow: 0 0 30px rgba(16, 124, 16, 0.8), 0 0 40px rgba(0, 111, 205, 0.3); }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--ps-blue), var(--xbox-green));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 111, 205, 0.3);
+        }
+        
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .controller-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--ps-blue), var(--xbox-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 111, 205, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--ps-blue), var(--xbox-green));
+            width: 0%;
+            transition: width 2s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="font-orbitron text-2xl font-bold gradient-text">GamerXise</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-[#006FCD] transition">Features</a>
+                    <a href="#products" class="text-gray-700 hover:text-[#107C10] transition">Products</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-[#006FCD] transition">Results</a>
+                    <a href="#blog" class="text-gray-700 hover:text-[#107C10] transition">Blog</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="font-orbitron text-4xl md:text-6xl font-bold mb-6">
+                        Game Your Way to 
+                        <span class="gradient-text">Peak Fitness</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 max-w-2xl">
+                        Transform your gaming sessions into powerful workouts. Build muscle, lose fat, and improve your gaming skills - all while playing your favorite games on Xbox or PlayStation.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg">
+                            Start Free Trial
+                        </button>
+                        <button class="border-2 border-[#006FCD] text-[#006FCD] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#006FCD] hover:text-white transition">
+                            Watch Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="controller-float">
+                        <div class="w-80 h-80 mx-auto relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-[#006FCD] to-[#107C10] rounded-full opacity-20 blur-3xl"></div>
+                            <div class="relative z-10">
+                                <svg viewBox="0 0 200 200" class="w-full h-full">
+                                    <circle cx="100" cy="100" r="90" fill="none" stroke="url(#gradient)" stroke-width="2" class="pulse-glow"/>
+                                    <circle cx="70" cy="70" r="20" fill="#006FCD" class="controller-float" style="animation-delay: 0.5s"/>
+                                    <circle cx="130" cy="70" r="20" fill="#107C10" class="controller-float" style="animation-delay: 1s"/>
+                                    <rect x="60" y="110" width="80" height="30" rx="15" fill="url(#gradient)" class="pulse-glow"/>
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#006FCD"/>
+                                            <stop offset="100%" style="stop-color:#107C10"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold text-[#006FCD] stats-counter" data-target="94">0%</div>
+                    <p class="text-gray-600 mt-2">Improved Gaming Performance</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-[#107C10] stats-counter" data-target="87">0%</div>
+                    <p class="text-gray-600 mt-2">Fat Loss Achieved</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-[#006FCD] stats-counter" data-target="92">0%</div>
+                    <p class="text-gray-600 mt-2">Better Reaction Time</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-[#107C10] stats-counter" data-target="15">0k+</div>
+                    <p class="text-gray-600 mt-2">Happy Gamers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-orbitron text-4xl font-bold mb-4">Why GamerXise Works</h2>
+                <p class="text-xl text-gray-600">The science behind gaming + fitness</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card rounded-2xl p-8 card-hover">
+                    <div class="controller-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Neuro-Muscular Training</h3>
+                    <p class="text-gray-600 text-center">Enhances the brain-body connection while gaming, improving both physical fitness and gaming performance simultaneously.</p>
+                </div>
+                
+                <div class="feature-card rounded-2xl p-8 card-hover">
+                    <div class="controller-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Controller-Compatible</h3>
+                    <p class="text-gray-600 text-center">Every exercise is designed to be performed while holding your Xbox or PlayStation controller. No equipment needed.</p>
+                </div>
+                
+                <div class="feature-card rounded-2xl p-8 card-hover">
+                    <div class="controller-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Game-Skill Enhancement</h3>
+                    <p class="text-gray-600 text-center">Specific exercises that directly translate to better gaming performance - improved reaction time, focus, and endurance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-orbitron text-4xl font-bold mb-4">Choose Your Level</h2>
+                <p class="text-xl text-gray-600">From casual gamers to competitive athletes</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- GamerXise Monthly -->
+                <div class="relative">
+                    <div class="feature-card rounded-2xl p-8 card-hover border-2 border-[#006FCD]">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold mb-2">GamerXise Monthly</h3>
+                            <p class="text-gray-600 mb-4">Perfect for most gamers</p>
+                            <div class="text-4xl font-bold text-[#006FCD] mb-4">$27<span class="text-lg text-gray-600">/month</span></div>
+                            <ul class="text-left space-y-3 mb-8">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-[#006FCD] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    New workouts monthly
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-[#006FCD] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Guided video workouts
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-[#006FCD] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Educational resources
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-[#006FCD] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Community bonuses
+                                </li>
+                            </ul>
+                            <button class="w-full bg-[#006FCD] text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+                                Start 7-Day Free Trial
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GamerXise Client -->
+                <div class="relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#006FCD] to-[#107C10] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Most Popular
+                    </div>
+                    <div class="feature-card rounded-2xl p-8 card-hover border-2 border-[#107C10]">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold mb-2">GamerXise Client</h3>
+                            <p class="text-gray-600 mb-4">Personal training for serious goals</p>
+                            <div class="text-4xl font-bold text-[#107C10] mb-4">$100<span class="text-lg text-gray-600">/month</span></div>
+                            <p class="text-sm text-gray-600 mb-4">+ $75/session</p>
+                            <ul class="text-left space-y-3 mb-8">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-[#107C10] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Personal trainer assigned
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-[#107C10] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Custom program design
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-[#107C10] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Weekly check-ins
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-[#107C10] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Game-specific training
+                                </li>
+                            </ul>
+                            <button class="w-full bg-[#107C10] text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+                                Book Free Consultation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GamerXise Programming -->
+                <div class="relative">
+                    <div class="feature-card rounded-2xl p-8 card-hover border-2 border-gray-300">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold mb-2">GamerXise Programming</h3>
+                            <p class="text-gray-600 mb-4">Semi-personalized approach</p>
+                            <div class="text-4xl font-bold text-gray-700 mb-4">$100<span class="text-lg text-gray-600"> setup</span></div>
+                            <p class="text-sm text-gray-600 mb-4">then $60/month</p>
+                            <ul class="text-left space-y-3 mb-8">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-gray-700 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Custom program design
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-gray-700 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Monthly program updates
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-gray-700 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Unlimited adjustments
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-gray-700 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Trainer-designed routines
+                                </li>
+                            </ul>
+                            <button class="w-full border-2 border-gray-700 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-700 hover:text-white transition">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-orbitron text-4xl font-bold mb-4">Real Results from Real Gamers</h2>
+                <p class="text-xl text-gray-600">Join thousands of gamers who transformed their bodies and game</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card rounded-2xl p-8">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60" alt="Avatar" class="rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">@ProGamer_Sarah</h4>
+                            <p class="text-sm text-gray-600">Valorant Player</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Lost 15 lbs and hit Radiant for the first time. The reaction time exercises are insane - my flick shots improved dramatically!"</p>
+                    <div class="flex text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="feature-card rounded-2xl p-8">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60" alt="Avatar" class="rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">@TwitchTV_Mike</h4>
+                            <p class="text-sm text-gray-600">Streamers</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Can stream for 8+ hours without back pain. My energy levels are through the roof and chat loves the energy!"</p>
+                    <div class="flex text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="feature-card rounded-2xl p-8">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60" alt="Avatar" class="rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">@Competitive_Jake</h4>
+                            <p class="text-sm text-gray-600">Apex Legends</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Gained 10 lbs of muscle and my KD went from 1.2 to 2.8. The focus exercises are game-changing for tournaments."</p>
+                    <div class="flex text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-orbitron text-4xl font-bold mb-4">Latest Articles</h2>
+                <p class="text-xl text-gray-600">Level up your knowledge</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article class="feature-card rounded-2xl overflow-hidden card-hover">
+                    <img src="https://via.placeholder.com/400x200" alt="Blog" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Why Gaming and Exercise Are Better Together</h3>
+                        <p class="text-gray-600 text-sm mb-4">Discover the science behind combining gaming and fitness...</p>
+                        <a href="#" class="text-[#006FCD] font-semibold hover:text-blue-700">Read More →</a>
+                    </div>
+                </article>
+                
+                <article class="feature-card rounded-2xl overflow-hidden card-hover">
+                    <img src="https://via.placeholder.com/400x200" alt="Blog" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Health Benefits of Gaming and Exercise</h3>
+                        <p class="text-gray-600 text-sm mb-4">Beyond fitness - mental health, social connections...</p>
+                        <a href="#" class="text-[#107C10] font-semibold hover:text-green-700">Read More →</a>
+                    </div>
+                </article>
+                
+                <article class="feature-card rounded-2xl overflow-hidden card-hover">
+                    <img src="https://via.placeholder.com/400x200" alt="Blog" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Best Fitness Games of 2025</h3>
+                        <p class="text-gray-600 text-sm mb-4">The ultimate guide to games that keep you active...</p>
+                        <a href="#" class="text-[#006FCD] font-semibold hover:text-blue-700">Read More →</a>
+                    </div>
+                </article>
+                
+                <article class="feature-card rounded-2xl overflow-hidden card-hover">
+                    <img src="https://via.placeholder.com/400x200" alt="Blog" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Why GamerXise Beats Traditional Fitness Apps</h3>
+                        <p class="text-gray-600 text-sm mb-4">The unique advantages of gaming-focused fitness...</p>
+                        <a href="#" class="text-[#107C10] font-semibold hover:text-green-700">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-orbitron text-2xl font-bold mb-4">GamerXise</h3>
+                    <p class="text-gray-400">Game your way to fitness. Transform your body while playing your favorite games.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">GamerXise Monthly</a></li>
+                        <li><a href="#" class="hover:text-white transition">GamerXise Client</a></li>
+                        <li><a href="#" class="hover:text-white transition">GamerXise Programming</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Success Stories</a></li>
+                        <li><a href="#" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 GamerXise. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Counter Animation
+        const counters = document.querySelectorAll('.stats-counter');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    animateCounter(counter, target);
+                }
+            });
+        });
+
+        counters.forEach(counter => observer.observe(counter));
+
+        function animateCounter(counter, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                counter.textContent = Math.floor(current) + (counter.textContent.includes('k') ? 'k+' : counter.textContent.includes('%') ? '%' : '');
+            }, 20);
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        let mobileMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOpen = !mobileMenuOpen;
+            // Add mobile menu functionality here
+        });
+
+        // Progress Bar Animation
+        const progressBars = document.querySelectorAll('.progress-fill');
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = '100%';
+                }
+            });
+        });
+
+        progressBars.forEach(bar => progressObserver.observe(bar));
+
+        // GSAP Animations
+        gsap.from('.hero-bg h1', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.hero-bg p', {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            delay: 0.3,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.hero-bg button', {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            delay: 0.6,
+            stagger: 0.2,
+            ease: 'power3.out'
+        });
+    </script>
+</body>
+</html>
