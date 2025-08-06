@@ -1,112 +1,122 @@
-Here's the polished version with enhanced animations, hover effects, and a refined design while maintaining the original content:
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GamerXise - Transform Your Gaming Experience</title>
+    <title>GamerXise - Transform Your Gaming into a Workout</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'playstation-blue': '#003791',
-                        'xbox-green': '#107c10',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
+                        primary: '#003791',
+                        secondary: '#107c10',
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-        
-        .hero-text {
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #003791;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px) !important;
-        }
-        
-        .testimonial-card {
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .pricing-card {
-            transition: all 0.3s ease;
-        }
-        
-        .pricing-card:hover {
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #003791 0%, #107c10 100%);
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1542270921-177995f00e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODg4NTB8MHwxfHNlYXJjaHwxfHxjb25zb2xlJTIwZ2FtaW5nfGVufDB8fHx8MTcyMjk4ODIxOXww&ixlib=rb-4.0.3&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
     </style>
+<style>
+  /* Hero section fade-in animation */
+  .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1542270921-177995f00e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODg4NTB8MHwxfHNlYXJjaHwxfHxjb25zb2xlJTIwZ2FtaW5nfGVufDB8fHx8MTcyMjk4ODIxOXww&ixlib=rb-4.0.3&q=80&w=1080');
+    background-size: cover;
+    background-position: center;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Button hover effects */
+  .btn-primary {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #5d7df4, #9866d8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Card hover effects */
+  .card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Gradient borders for key sections */
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3, #6e8efb);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Modern section styling */
+  .modern-section {
+    background: linear-gradient(135deg, rgba(20, 20, 30, 0.9), rgba(30, 30, 50, 0.9));
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="font-sans antialiased text-gray-800">
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-gray-800 hover:text-playstation-blue transition-colors duration-300 flex items-center">
-                        <span class="mr-2">?</span> GamerXise
-                    </a>
+                    <a href="#" class="text-xl font-bold text-primary">GamerXise</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="nav-link text-gray-600 hover:text-playstation-blue transition-colors duration-300">About</a>
-                    <a href="#services" class="nav-link text-gray-600 hover:text-playstation-blue transition-colors duration-300">Services</a>
-                    <a href="#pricing" class="nav-link text-gray-600 hover:text-playstation-blue transition-colors duration-300">Pricing</a>
-                    <a href="#testimonials" class="nav-link text-gray-600 hover:text-playstation-blue transition-colors duration-300">Testimonials</a>
-                    <a href="blog.html" class="nav-link text-gray-600 hover:text-playstation-blue transition-colors duration-300">Blog</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary transition">Services</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-primary transition">Pricing</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-primary transition">Blog</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition">Contact</a>
                 </div>
-                <div class="md:hidden">
-                    <button class="text-gray-600 focus:outline-none transition-transform hover:scale-110">
-                        <i class="fas fa-bars text-2xl"></i>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -114,336 +124,277 @@ Here's the polished version with enhanced animations, hover effects, and a refin
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <img src="https://images.unsplash.com/photo-1542270921-177995f00e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODg4NTB8MHwxfHNlYXJjaHwxfHxjb25zb2xlJTIwZ2FtaW5nfGVufDB8fHx8MTcyMjk4ODIxOXww&ixlib=rb-4.0.3&q=80&w=1080" 
-             alt="Gaming setup" 
-             class="absolute inset-0 w-full h-full object-cover animate-pulse-slow">
-        <div class="container mx-auto px-6 z-10 text-center hero-text">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-float">Transform Your Gaming Experience</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Get fit while playing your favorite games with GamerXise.</p>
-            <a href="#pricing" class="bg-playstation-blue hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 inline-block">
-                Get Started <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-        </div>
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-            <a href="#about" class="text-white text-2xl">
-                <i class="fas fa-chevron-down"></i>
-            </a>
+    <section class="hero-bg min-h-screen flex items-center justify-center text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Transform Your Gaming into a Workout</h1>
+            <p class="text-xl md:text-2xl mb-10">Enhance your health and gaming skills with GamerXise, the ultimate fitness solution for gamers.</p>
+            <a href="#pricing" class="bg-primary hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">Get Started</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 relative inline-block">
-                    <span class="relative z-10">Our Story</span>
-                    <span class="absolute bottom-0 left-0 w-full h-2 bg-xbox-green opacity-20 -z-1" style="bottom: 5px;"></span>
-                </h2>
-                <p class="text-lg leading-relaxed text-gray-700">
-                    GamerXise was created out of necessity by a founder who, as an ADHD and TBI survivor, struggled with chronic migraines and maintaining healthy exercise habits. He realized that the immersive nature of video games could be leveraged to create a unique fitness solution. Through trial and error, GamerXise was born?a program that merges video games and exercise to improve both physical and mental health. Our mission is to share this innovative approach with the world, helping gamers achieve their health and fitness goals while enjoying their favorite pastime.
-                </p>
-                <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-gray-100 p-4 rounded-lg">
-                        <div class="text-playstation-blue text-3xl mb-2">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <p class="font-bold">Health</p>
-                    </div>
-                    <div class="bg-gray-100 p-4 rounded-lg">
-                        <div class="text-xbox-green text-3xl mb-2">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <p class="font-bold">Gaming</p>
-                    </div>
-                    <div class="bg-gray-100 p-4 rounded-lg">
-                        <div class="text-playstation-blue text-3xl mb-2">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <p class="font-bold">Focus</p>
-                    </div>
-                    <div class="bg-gray-100 p-4 rounded-lg">
-                        <div class="text-xbox-green text-3xl mb-2">
-                            <i class="fas fa-dumbbell"></i>
-                        </div>
-                        <p class="font-bold">Fitness</p>
-                    </div>
-                </div>
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4">Our Story</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            <div class="max-w-3xl mx-auto text-lg text-gray-700">
+                <p class="mb-6">GamerXise was created out of necessity by a founder with ADHD and a TBI survivor who was suffering from chronic migraines. Struggling to maintain healthy exercise habits, he turned to what he knew worked: the immersive world of video games.</p>
+                <p>By merging video games and exercise, he found a way to improve his health and happiness. GamerXise was born out of blood, sweat, tears, and a lot of trial and error, and is now being packaged to share with and benefit the whole world.</p>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 relative inline-block">
-                <span class="relative z-10">Our Services</span>
-                <span class="absolute bottom-0 left-0 w-full h-2 bg-playstation-blue opacity-20 -z-1" style="bottom: 5px;"></span>
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-lg service-card transition-all duration-300 hover:border-l-4 hover:border-playstation-blue">
-                    <div class="text-playstation-blue text-4xl mb-4">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">GamerXise Monthly</h3>
-                    <p class="text-gray-700 mb-6">
-                        A monthly subscription providing new workouts every month. Get guided workouts and resources to make exercising while gaming easy. Includes educational resources and bonuses to enhance your results.
-                    </p>
-                    <a href="#pricing" class="text-playstation-blue font-semibold inline-flex items-center hover:underline">
-                        Learn more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4">Our Services</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-primary mb-4">GamerXise Monthly</h3>
+                    <p class="text-gray-700">A monthly subscription providing new workouts every month. Get guided workouts and resources to make it easy to do while gaming, as well as educational resources to teach you the basics, and bonuses to improve results.</p>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg service-card transition-all duration-300 hover:border-l-4 hover:border-xbox-green">
-                    <div class="text-xbox-green text-4xl mb-4">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">GamerXise Client</h3>
-                    <p class="text-gray-700 mb-6">
-                        For those with specific goals or needing a tailored program. Receive personalized training, assessments, and program adjustments from a dedicated personal trainer. Ideal for improving game skills, overcoming health challenges, or achieving specific physical targets.
-                    </p>
-                    <a href="#pricing" class="text-xbox-green font-semibold inline-flex items-center hover:underline">
-                        Learn more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-primary mb-4">GamerXise Client</h3>
+                    <p class="text-gray-700">For those with specific goals or needing a tailored program, GamerXise Client offers a personal trainer to assess, guide, create, and monitor your program, adjusting it as needed. Ideal for game skill goals, health challenges, and specific physical targets.</p>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg service-card transition-all duration-300 hover:border-l-4 hover:border-playstation-blue">
-                    <div class="text-playstation-blue text-4xl mb-4">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">GamerXise Programming</h3>
-                    <p class="text-gray-700 mb-6">
-                        Get a semi-personalized program designed by a personal trainer. Receive monthly updates and adjustments to your program, ensuring it remains effective and aligned with your goals.
-                    </p>
-                    <a href="#pricing" class="text-playstation-blue font-semibold inline-flex items-center hover:underline">
-                        Learn more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-primary mb-4">GamerXise Programming</h3>
+                    <p class="text-gray-700">Get a semi-personalized program designed by a personal trainer, with monthly updates and adjustments. This service includes an initial assessment and program fee, followed by a lower monthly rate for unlimited updates.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 relative inline-block">
-                <span class="relative z-10">What Our Clients Say</span>
-                <span class="absolute bottom-0 left-0 w-full h-2 bg-xbox-green opacity-20 -z-1" style="bottom: 5px;"></span>
-            </h2>
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4">What Our Members Say</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-lg testimonial-card border border-gray-200 hover:border-playstation-blue">
-                    <div class="text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="italic mb-6">"I've lost 20 pounds and my gaming skills have improved dramatically! GamerXise has been a game-changer for me."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-playstation-blue flex items-center justify-center text-white font-bold mr-4">JD</div>
-                        <div>
-                            <p class="font-bold">John D.</p>
-                            <p class="text-sm text-gray-500">Pro Gamer</p>
-                        </div>
-                    </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <p class="text-gray-700 italic mb-6">"I've lost weight and improved my gaming skills without even realizing it! GamerXise is a game-changer."</p>
+                    <p class="font-bold text-primary">Alex R.</p>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-lg testimonial-card border border-gray-200 hover:border-xbox-green">
-                    <div class="text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="italic mb-6">"I never thought I could enjoy exercising so much. GamerXise has helped me stay fit and focused while doing what I love."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-xbox-green flex items-center justify-center text-white font-bold mr-4">ER</div>
-                        <div>
-                            <p class="font-bold">Emily R.</p>
-                            <p class="text-sm text-gray-500">Streamer</p>
-                        </div>
-                    </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <p class="text-gray-700 italic mb-6">"GamerXise has helped me manage my ADHD and improve my focus. I can't recommend it enough!"</p>
+                    <p class="font-bold text-primary">Sam L.</p>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-lg testimonial-card border border-gray-200 hover:border-playstation-blue">
-                    <div class="text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="italic mb-6">"My migraines have decreased significantly since I started using GamerXise. It's a fantastic way to stay active and healthy."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full bg-playstation-blue flex items-center justify-center text-white font-bold mr-4">MS</div>
-                        <div>
-                            <p class="font-bold">Mark S.</p>
-                            <p class="text-sm text-gray-500">Developer</p>
-                        </div>
-                    </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <p class="text-gray-700 italic mb-6">"I've never been able to stick to a workout routine before, but GamerXise makes it fun and engaging. I'm in the best shape of my life!"</p>
+                    <p class="font-bold text-primary">Jordan K.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 relative inline-block">
-                <span class="relative z-10">Pricing Plans</span>
-                <span class="absolute bottom-0 left-0 w-full h-2 bg-playstation-blue opacity-20 -z-1" style="bottom: 5px;"></span>
-            </h2>
+    <section id="pricing" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4">Pricing Plans</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-lg pricing-card hover:shadow-xl">
-                    <h3 class="text-xl font-bold mb-4 text-playstation-blue">GamerXise Monthly</h3>
-                    <p class="text-3xl font-bold mb-6">$27<span class="text-lg text-gray-500">/month</span></p>
-                    <ul class="mb-8 space-y-3">
+                <div class="border border-gray-200 rounded-lg p-8 hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-primary mb-2">GamerXise Monthly</h3>
+                    <p class="text-3xl font-bold mb-6">$27/month</p>
+                    <ul class="space-y-3 mb-8">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>New workouts every month</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            New workouts every month
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Guided workouts</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Guided workouts
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Educational resources</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Educational resources
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Bonuses for improved results</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Bonuses to improve results
                         </li>
                     </ul>
-                    <a href="#" class="block w-full bg-playstation-blue hover:bg-blue-800 text-white text-center font-bold py-3 px-4 rounded transition-all hover:shadow-md">
-                        Choose Plan
-                    </a>
+                    <button class="w-full bg-primary hover:bg-blue-800 text-white font-bold py-3 px-4 rounded transition">Select Plan</button>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow-xl pricing-card border-2 border-xbox-green relative transform hover:-translate-y-2">
-                    <div class="absolute top-0 right-0 bg-xbox-green text-white px-4 py-1 text-sm font-bold rounded-bl">
-                        Popular
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-xbox-green">GamerXise Client</h3>
-                    <p class="text-3xl font-bold mb-6">$100<span class="text-lg text-gray-500">/month</span></p>
-                    <ul class="mb-8 space-y-3">
+                <div class="border border-gray-200 rounded-lg p-8 hover:shadow-lg transition transform scale-105 relative bg-gray-50">
+                    <div class="absolute top-0 right-0 bg-secondary text-white px-3 py-1 text-sm font-bold rounded-bl">POPULAR</div>
+                    <h3 class="text-xl font-bold text-primary mb-2">GamerXise Client</h3>
+                    <p class="text-3xl font-bold mb-6">$100/month or $75 per session</p>
+                    <ul class="space-y-3 mb-8">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Personal trainer</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Personal trainer assessment
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Customized program</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Tailored workout programs
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Regular assessments</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Ongoing guidance and monitoring
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Game skill improvement</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Adjustments to meet specific goals
                         </li>
                     </ul>
-                    <a href="#" class="block w-full bg-xbox-green hover:bg-green-800 text-white text-center font-bold py-3 px-4 rounded transition-all hover:shadow-md">
-                        Choose Plan
-                    </a>
+                    <button class="w-full bg-primary hover:bg-blue-800 text-white font-bold py-3 px-4 rounded transition">Select Plan</button>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg pricing-card hover:shadow-xl">
-                    <h3 class="text-xl font-bold mb-4 text-playstation-blue">GamerXise Programming</h3>
-                    <p class="text-3xl font-bold mb-6">$100<span class="text-lg text-gray-500"> initial</span><br>+ $60<span class="text-lg text-gray-500">/month</span></p>
-                    <ul class="mb-8 space-y-3">
+                <div class="border border-gray-200 rounded-lg p-8 hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-primary mb-2">GamerXise Programming</h3>
+                    <p class="text-3xl font-bold mb-6">$100 initial fee, $60/month for updates</p>
+                    <ul class="space-y-3 mb-8">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Semi-personalized program</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Semi-personalized program
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Monthly updates</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Monthly updates
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Program adjustments</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Initial assessment
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                            <span>Dedicated support</span>
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Unlimited adjustments
                         </li>
                     </ul>
-                    <a href="#" class="block w-full bg-playstation-blue hover:bg-blue-800 text-white text-center font-bold py-3 px-4 rounded transition-all hover:shadow-md">
-                        Choose Plan
-                    </a>
+                    <button class="w-full bg-primary hover:bg-blue-800 text-white font-bold py-3 px-4 rounded transition">Select Plan</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 gradient-bg text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Join the GamerXise Revolution</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Start your journey to better health and gaming performance today.</p>
-            <a href="#pricing" class="bg-white hover:bg-gray-100 text-playstation-blue font-bold py-3 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 inline-block">
-                Get Started Now <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Gaming Experience?</h2>
+            <p class="text-xl mb-10">Join thousands of gamers who have improved their health and gaming skills with GamerXise.</p>
+            <a href="#pricing" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">Join Now</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4">Contact Us</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                        <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 mb-2">Message</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="bg-primary hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition">Send Message</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <span class="mr-2">?</span> GamerXise
-                    </h3>
-                    <p class="text-gray-400">Transform your gaming experience while getting fit.</p>
-                    <div class="mt-4">
-                        <p class="text-gray-400"><i class="fas fa-envelope mr-2"></i> contact@gamerxise.com</p>
-                    </div>
+                    <h3 class="text-xl font-bold mb-4">GamerXise</h3>
+                    <p class="text-gray-400">Transform your gaming into a workout and enhance both your health and gaming skills.</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> About</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Services</a></li>
-                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Pricing</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Testimonials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition">Pricing</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Legal</h4>
                     <ul class="space-y-2">
-                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Terms of Use</a></li>
-                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Blog</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition">Terms of Use</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
-                    <div class="flex space-x-4 mb-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-playstation-blue hover:border-playstation-blue">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-blue-600 hover:border-blue-600">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-indigo-600 hover:border-indigo-600">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
-                    <div class="mt-4">
-                        <p class="text-gray-400">Subscribe to our newsletter</p>
-                        <div class="mt-2 flex">
-                            <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l text-gray-800 w-full focus:outline-none">
-                            <button class="bg-playstation-blue hover:bg-blue-800 px-4 py-2 rounded-r transition-colors duration-300">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Email: info@gamerxise.com</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li class="flex space-x-4 mt-4">
+                            <a href="#" class="hover:text-white transition">
+                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="hover:text-white transition">
+                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="hover:text-white transition">
+                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
                 <p>&copy; 2023 GamerXise. All rights reserved.</p>
             </div>
         </div>
@@ -453,10 +404,11 @@ Here's the polished version with enhanced animations, hover effects, and a refin
         // Mobile menu toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.querySelector('.md\\:hidden button');
+            const mobileMenu = document.querySelector('.md\\:hidden + div');
             
             mobileMenuButton.addEventListener('click', function() {
-                // This would toggle a mobile menu if implemented
-                alert('Mobile menu would open here in a full implementation');
+                // This would toggle a mobile menu if we had one
+                console.log('Mobile menu would open here');
             });
             
             // Smooth scrolling for anchor links
@@ -469,62 +421,65 @@ Here's the polished version with enhanced animations, hover effects, and a refin
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                        targetElement.scrollIntoView({
                             behavior: 'smooth'
                         });
                     }
                 });
             });
-            
-            // Add scroll animation class
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.service-card, .testimonial-card, .pricing-card');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementPosition < windowHeight - 100) {
-                        element.classList.add('animate-float');
-                    }
-                });
-            };
-            
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Run once on page load
         });
     </script>
+<script>
+  // Add scroll-based animations
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animate elements when they come into view
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.card, .modern-section');
+      
+      elements.forEach(el => {
+        const elementPosition = el.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }
+      });
+    };
+
+    // Set initial state for animated elements
+    const animatedElements = document.querySelectorAll('.card, .modern-section');
+    animatedElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+
+    // Run on load and scroll
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
+
+    // Add ripple effect to buttons
+    const buttons = document.querySelectorAll('.btn-primary');
+    buttons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const x = e.clientX - e.target.getBoundingClientRect().left;
+        const y = e.clientY - e.target.getBoundingClientRect().top;
+        
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 1000);
+      });
+    });
+  });
+</script>
 </body>
 </html>
-
-Key improvements made:
-
-1. **Visual Enhancements**:
-   - Added subtle animations (floating, pulse) to key elements
-   - Improved hover effects with transitions and transforms
-   - Enhanced typography with the Poppins font family
-   - Added decorative elements like underlines for headings
-
-2. **Interactive Elements**:
-   - Smooth scrolling for navigation
-   - Enhanced button hover states with scale and shadow effects
-   - Improved card hover effects with elevation and border highlights
-   - Added arrow icons to call-to-action buttons
-
-3. **Color Usage**:
-   - Better utilization of the PlayStation blue and Xbox green accent colors
-   - Added gradient backgrounds where appropriate
-   - Improved contrast for better readability
-
-4. **Content Presentation**:
-   - Added icons and visual elements to break up text
-   - Improved testimonial cards with user avatars
-   - Enhanced pricing cards with better visual hierarchy
-   - Added a newsletter signup in the footer
-
-5. **Responsive Improvements**:
-   - Better spacing and sizing for different screen sizes
-   - Improved mobile navigation indication
-
-The design now feels more dynamic and engaging while maintaining all the original content and structure.
