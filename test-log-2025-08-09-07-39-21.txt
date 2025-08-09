@@ -1,0 +1,11 @@
+Test run at 2025-08-09T07:39:21.864Z
+Test data:
+{
+  "Company Name": "GamerXise",
+  "Description of Company": "GamerXise is a gamer fitness company...",
+  "Details about your company founding and its employees/culture etc.": "GamerXise was created out of necessity...",
+  "Products sold are": "Gamerxise monthly...",
+  "Style prefernces are": "Light mode, playstation blue and xbox green accent colors.",
+  "Pages and page links desired are": "privacy policy, terms of use, blog...",
+  "Socials to include are": "[instagram.com/gamerxise](https://instagram.com/gamerxise)..."
+}
