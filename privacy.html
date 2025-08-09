@@ -1,0 +1,169 @@
+Here's the complete HTML file for the Privacy Policy page, matching the style and structure of the main page:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | GamerXise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#107c10',
+                        secondary: '#43a047',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'gradient': 'gradient 8s ease infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(16, 124, 16, 0.7) 0%, rgba(67, 160, 71, 0.7) 100%);
+            background-size: 200% 200%;
+        }
+        .glow-button {
+            transition: all 0.3s ease;
+        }
+        .glow-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(67, 160, 71, 0.7);
+        }
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-gray-800">GamerXise</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-800 hover:text-primary transition">Home</a>
+                    <a href="index.html#about" class="text-gray-800 hover:text-primary transition">About</a>
+                    <a href="index.html#services" class="text-gray-800 hover:text-primary transition">Services</a>
+                    <a href="index.html#pricing" class="text-gray-800 hover:text-primary transition">Pricing</a>
+                    <a href="blog.html" class="text-gray-800 hover:text-primary transition">Blog</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Privacy Policy Content -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8">Privacy Policy</h1>
+                <div class="prose max-w-none">
+                    <p class="text-lg text-gray-600 mb-6">At GamerXise, we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information. By using our services, you consent to the practices described in this policy.</p>
+                    
+                    <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Information We Collect</h2>
+                    <p class="text-gray-600 mb-4">We may collect personal information when you:</p>
+                    <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
+                        <li>Register for an account on our website</li>
+                        <li>Subscribe to our newsletter or services</li>
+                        <li>Participate in surveys or promotions</li>
+                        <li>Contact our customer support</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">How We Use Your Information</h2>
+                    <p class="text-gray-600 mb-4">The information we collect may be used to:</p>
+                    <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
+                        <li>Provide and improve our services</li>
+                        <li>Personalize your experience</li>
+                        <li>Process transactions</li>
+                        <li>Send periodic emails (you can unsubscribe at any time)</li>
+                        <li>Respond to customer service requests</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Information Protection</h2>
+                    <p class="text-gray-600 mb-6">We implement a variety of security measures to maintain the safety of your personal information. Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems.</p>
+                    
+                    <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Cookies</h2>
+                    <p class="text-gray-600 mb-6">We use cookies to enhance your experience on our site. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your web browser that enables the site's systems to recognize your browser and capture certain information.</p>
+                    
+                    <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Third-Party Disclosure</h2>
+                    <p class="text-gray-600 mb-6">We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users.</p>
+                    
+                    <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Changes to This Policy</h2>
+                    <p class="text-gray-600 mb-6">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
+                    
+                    <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Contact Us</h2>
+                    <p class="text-gray-600">If you have any questions about this Privacy Policy, please contact us at privacy@gamerxise.com.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">GamerXise</h3>
+                    <p class="text-gray-400">Fitness solutions designed specifically for gamers to enhance performance and well-being.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="index.html#pricing" class="text-gray-400 hover:text-white transition">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <p class="text-gray-400 mb-2">support@gamerxise.com</p>
+                    <p class="text-gray-400">123 Gaming Street, Virtual City</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 GamerXise. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```
